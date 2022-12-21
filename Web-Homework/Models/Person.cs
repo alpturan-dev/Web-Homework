@@ -7,6 +7,7 @@
         public string PersonSurname { get; set; }
         public string PersonPhone { get; set; }
         public string PersonEmail { get; set; }
+        public string ImageUrl { get; set; }
         public string CategoryID  { get; set; }
         public virtual Category Category { get; set; }
 

@@ -6,9 +6,10 @@ namespace Web_Homework.Models
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=SA; database=DormitoryDB; integrated security=true");
+            optionsBuilder.UseSqlServer("Data Source=localhost,1433; Initial Catalog=DormitoryDB; User Id=SA;Password=Abudu321.;Encrypt=yes;TrustServerCertificate=true; Integrated Security=true;Trusted_Connection=false");
         }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Person> People { get; set; }
     }
+
 }
