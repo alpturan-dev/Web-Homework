@@ -1,0 +1,41 @@
+﻿@model List<Web_Homework.Models.Category>
+
+@{
+    ViewData["Title"] = "Category Page";
+    Layout = "~/Views/Shared/_Layout.cshtml"; ;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Category Index</title>
+</head>
+<body>
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+    <h2>Category List</h2>
+    <br />
+    <table class="table table-bordered">
+        <tr>
+            <td>ID</td>
+            <td>Category Name</td>
+            <td>Delete</td>
+            <td>Update</td>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.CategoryID</td>
+                <td>@item.CategoryName</td>
+                <td><a href="#" class="btn btn-danger">Delete</a></td>
+                <td><a href="#" class="btn btn-success">Update</a></td>
+            </tr>
+        }
+    </table>
+    <a href="#" class="btn btn-primary">New Category</a>
+
+</body>
+</html>
