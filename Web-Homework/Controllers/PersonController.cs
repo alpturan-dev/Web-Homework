@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Components.Forms;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -37,6 +38,11 @@ namespace Web_Homework.Controllers
         public IActionResult AddPerson(Person person)
         {
             personRepository.AddTable(person);
+            return RedirectToAction("Index");
+        }
+        public IActionResult DeletePerson(int personID)
+        {
+            personRepository.DeleteTable((new Person { PersonID = personID }));
             return RedirectToAction("Index");
         }
     }

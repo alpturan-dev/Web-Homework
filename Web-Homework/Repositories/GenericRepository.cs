@@ -4,8 +4,8 @@ using Web_Homework.Models;
 
 namespace Web_Homework.Repositories
 {
-	public class GenericRepository<Table> where Table:class
-	{
+    public class GenericRepository<Table> where Table : class
+    {
         Context context = new Context();
         public List<Table> TableList()
         {
@@ -20,17 +20,20 @@ namespace Web_Homework.Repositories
             context.Set<Table>().Add(parameter);
             context.SaveChanges();
         }
-        public void DeletePerson(Table parameter)
+        public void DeleteTable(Table parameter)
         {
+            //context.Entry<Table>(parameter).State = EntityState.Deleted;
             context.Set<Table>().Remove(parameter);
+            //context.Remove(parameter);
             context.SaveChanges();
+            //context.SaveChangesAsync();
         }
-        public void UpdatePerson(Table parameter)
+        public void UpdateTable(Table parameter)
         {
             context.Set<Table>().Update(parameter);
             context.SaveChanges();
         }
-        public void FindPerson(int id)
+        public void FindTable(int id)
         {
             context.Set<Table>().Find(id);
         }
