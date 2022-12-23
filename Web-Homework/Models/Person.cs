@@ -8,7 +8,7 @@
         public string PersonPhone { get; set; }
         public string PersonEmail { get; set; }
         public string ImageUrl { get; set; }
-        public string CategoryID  { get; set; }
+        public int CategoryID { get; set; }
         public virtual Category Category { get; set; }
 
     }

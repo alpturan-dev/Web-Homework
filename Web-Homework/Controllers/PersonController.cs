@@ -24,13 +24,13 @@ namespace Web_Homework.Controllers
         [HttpGet]
         public IActionResult AddPerson()
         {
-            //List<SelectListItem> listItems = (from item in context.Categories.ToList()
-            //                                  select new SelectListItem
-            //                                  {
-            //                                      Text = item.CategoryName,
-            //                                      Value = item.CategoryID.ToString()
-            //                                  }).ToList();
-            //ViewBag.listItemsBag = listItems;
+            List<SelectListItem> listItems = (from item in context.Categories.ToList()
+                                              select new SelectListItem
+                                              {
+                                                  Text = item.CategoryName,
+                                                  Value = item.CategoryID.ToString()
+                                              }).ToList();
+            ViewBag.listItemsBag = listItems;
             return View();
         }
         [HttpPost]

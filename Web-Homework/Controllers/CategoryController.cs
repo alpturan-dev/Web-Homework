@@ -26,10 +26,11 @@ namespace Web_Homework.Controllers
         [HttpPost]
         public IActionResult AddCategory(Category category)
         {
-            if (!ModelState.IsValid)
-            {
-                return View("AddCategory");
-            }
+            //Anlamadim burayi sonra bakariz.
+            //if (!ModelState.IsValid)
+            //{
+            //    return View("AddCategory");
+            //}
             categoryRepository.AddTable(category);
             return RedirectToAction("Index");
         }
