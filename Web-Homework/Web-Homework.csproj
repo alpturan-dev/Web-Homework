@@ -36,4 +36,9 @@
     <Folder Include="Views\Category\" />
     <Folder Include="Views\Person\" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Update="Views\Shared\_Layout.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
 </Project>
