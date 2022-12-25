@@ -40,9 +40,9 @@ namespace Web_Homework.Controllers
             personRepository.AddTable(person);
             return RedirectToAction("Index");
         }
-        public IActionResult DeletePerson(int personID)
+        public IActionResult DeletePerson(int id)
         {
-            personRepository.DeleteTable((new Person { PersonID = personID }));
+            personRepository.DeleteTable((new Person { PersonID = id }));
             return RedirectToAction("Index");
         }
     }
