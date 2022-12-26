@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Web_Homework.Models;
 using Web_Homework.Repositories;
+using X.PagedList;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -18,9 +19,9 @@ namespace Web_Homework.Controllers
         PersonRepository personRepository = new PersonRepository();
 
         // GET: /<controller>/
-        public IActionResult Index()
+        public IActionResult Index(int page = 1)
         {
-            return View(personRepository.TableList("Category"));
+            return View(personRepository.TableList("Category").ToPagedList(page, 3));
         }
         [HttpGet]
         public IActionResult AddPerson()
@@ -43,6 +44,41 @@ namespace Web_Homework.Controllers
         public IActionResult DeletePerson(int id)
         {
             personRepository.DeleteTable((new Person { PersonID = id }));
+            return RedirectToAction("Index");
+        }
+        public IActionResult GetPerson(int id)
+        {
+            var item = personRepository.FindTable(id);
+            List<SelectListItem> listItems = (from item2 in context.Categories.ToList()
+                                              select new SelectListItem
+                                              {
+                                                  Text = item2.CategoryName,
+                                                  Value = item2.CategoryID.ToString()
+                                              }).ToList();
+            ViewBag.listItemsBag = listItems;
+            Person person = new Person()
+            {
+                PersonID = item.PersonID,
+                CategoryID = item.CategoryID,
+                PersonName = item.PersonName,
+                PersonSurname = item.PersonSurname,
+                PersonPhone = item.PersonPhone,
+                PersonEmail = item.PersonEmail,
+                ImageUrl = item.ImageUrl
+            };
+            return View(person);
+        }
+        [HttpPost]
+        public IActionResult UpdatePerson(Person person)
+        {
+            var item = personRepository.FindTable(person.PersonID);
+            item.PersonName = person.PersonName;
+            item.PersonSurname = person.PersonSurname;
+            item.PersonPhone = person.PersonPhone;
+            item.PersonEmail = person.PersonEmail;
+            item.ImageUrl = person.ImageUrl;
+            item.CategoryID = person.CategoryID;
+            personRepository.UpdateTable(item);
             return RedirectToAction("Index");
         }
     }

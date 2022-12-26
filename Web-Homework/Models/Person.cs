@@ -1,4 +1,6 @@
-﻿namespace Web_Homework.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Web_Homework.Models
 {
     public class Person
     {

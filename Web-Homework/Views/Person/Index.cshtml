@@ -1,4 +1,8 @@
-@model List<Web_Homework.Models.Person>
+@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+@using X.PagedList.Web.Common;
+
+@model IPagedList<Web_Homework.Models.Person>
 
 @{
     ViewData["Title"] = "People Page";
@@ -39,10 +43,25 @@
                 <td>@item.PersonEmail</td>
                 <td>@item.Category.CategoryName</td>
                 <td><a href="/Person/DeletePerson/@item.PersonID" class="btn btn-danger">Delete</a></td>
-                <td><a href="#" class="btn btn-success">Update</a></td>
+                <td><a href="/Person/GetPerson/@item.PersonID" class="btn btn-success">Update</a></td>
             </tr>
         }
     </table>
+    <div class="pull-right">
+        @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index",
+           new
+                {
+                    page
+
+         }),
+         new PagedListRenderOptionsBase
+         {
+             LiElementClasses = new string[] { "page-item" },
+             PageClasses = new string[] { "page-link" },
+             Display = PagedListDisplayMode.IfNeeded
+
+              })
+    </div>
     <a href="/Person/AddPerson" class="btn btn-primary">New Person</a>
 
 </body>

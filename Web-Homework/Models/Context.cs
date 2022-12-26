@@ -10,6 +10,7 @@ namespace Web_Homework.Models
         }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Person> People { get; set; }
+        public DbSet<Admin> Admins { get; set; }
     }
 
 }

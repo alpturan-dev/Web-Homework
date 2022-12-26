@@ -33,9 +33,9 @@ namespace Web_Homework.Repositories
             context.Set<Table>().Update(parameter);
             context.SaveChanges();
         }
-        public void FindTable(int id)
+        public Table FindTable(int id)
         {
-            context.Set<Table>().Find(id);
+            return context.Set<Table>().Find(id);
         }
     }
 }

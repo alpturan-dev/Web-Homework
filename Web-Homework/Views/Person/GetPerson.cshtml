@@ -16,8 +16,8 @@
     @section Scripts {
         @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     }
-    <h2>Add Person Page</h2>
-    @using (Html.BeginForm("AddPerson", "Person", FormMethod.Post))
+    <h2>Update Person Page</h2>
+    @using (Html.BeginForm("UpdatePerson", "Person", FormMethod.Post))
     {
         @Html.LabelFor(person => person.PersonID)
         @Html.TextBoxFor(person => person.PersonID, new { @class = "form-control" })
@@ -38,6 +38,8 @@
         @Html.TextBoxFor(person => person.ImageUrl, new { @class = "form-control" })
         <br />
         @Html.LabelFor(person => person.Category)
+        @*@Html.TextBoxFor(person => person.CategoryID, new { @class = "form-control" })
+            <br />*@
         @Html.DropDownListFor(person => person.CategoryID, (List<SelectListItem>)ViewBag.listItemsBag, new { @class = "form-control" })
         <br />
         <button class="btn btn-success">Save</button>
