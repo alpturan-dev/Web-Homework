@@ -10,28 +10,28 @@ using Web_Homework.Repositories;
 
 namespace Web_Homework.Controllers
 {
-    public class CategoryController : Controller
+    public class PersonCategoryController : Controller
     {
-        CategoryRepository categoryRepository = new CategoryRepository();
+        PersonCategoryRepository personCategoryRepository = new PersonCategoryRepository();
 
         public IActionResult Index()
         {
-            return View(categoryRepository.TableList());
+            return View(personCategoryRepository.TableList());
         }
         [HttpGet]
-        public IActionResult AddCategory()
+        public IActionResult AddPersonCategory()
         {
             return View();
         }
         [HttpPost]
-        public IActionResult AddCategory(Category category)
+        public IActionResult AddPersonCategory(PersonCategory personCategory)
         {
             //Anlamadim burayi sonra bakariz.
             //if (!ModelState.IsValid)
             //{
             //    return View("AddCategory");
             //}
-            categoryRepository.AddTable(category);
+            personCategoryRepository.AddTable(personCategory);
             return RedirectToAction("Index");
         }
     }

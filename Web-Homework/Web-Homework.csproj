@@ -29,7 +29,6 @@
     <None Remove="Microsoft.EntityFrameworkCore.Design" />
     <None Remove="Microsoft.Data.SqlClient" />
     <None Remove="Repositories\" />
-    <None Remove="Views\Category\" />
     <None Remove="Microsoft.VisualStudio.Web.CodeGeneration.Design" />
     <None Remove="Views\Person\" />
     <None Remove="X.PagedList.Mvc.Core" />
@@ -38,7 +37,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Repositories\" />
-    <Folder Include="Views\Category\" />
     <Folder Include="Views\Person\" />
     <Folder Include="Views\Login\" />
     <Folder Include="ViewComponents\" />

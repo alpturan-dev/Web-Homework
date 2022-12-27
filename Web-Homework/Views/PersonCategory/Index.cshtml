@@ -1,4 +1,4 @@
-﻿@model List<Web_Homework.Models.Category>
+﻿@model List<Web_Homework.Models.PersonCategory>
 
 @{
     ViewData["Title"] = "Category Page";
@@ -28,14 +28,14 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>@item.CategoryID</td>
-                <td>@item.CategoryName</td>
+                <td>@item.PersonCategoryID</td>
+                <td>@item.PersonCategoryName</td>
                 <td><a href="#" class="btn btn-danger">Delete</a></td>
                 <td><a href="#" class="btn btn-success">Update</a></td>
             </tr>
         }
     </table>
-    <a href="/Category/AddCategory/" class="btn btn-primary">New Category</a>
+    <a href="/Category/AddPersonCategory/" class="btn btn-primary">New Category</a>
 
 </body>
 </html>

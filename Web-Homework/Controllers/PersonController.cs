@@ -21,16 +21,16 @@ namespace Web_Homework.Controllers
         // GET: /<controller>/
         public IActionResult Index(int page = 1)
         {
-            return View(personRepository.TableList("Category").ToPagedList(page, 3));
+            return View(personRepository.TableList("PersonCategory").ToPagedList(page, 3));
         }
         [HttpGet]
         public IActionResult AddPerson()
         {
-            List<SelectListItem> listItems = (from item in context.Categories.ToList()
+            List<SelectListItem> listItems = (from item in context.PersonCategories.ToList()
                                               select new SelectListItem
                                               {
-                                                  Text = item.CategoryName,
-                                                  Value = item.CategoryID.ToString()
+                                                  Text = item.PersonCategoryName,
+                                                  Value = item.PersonCategoryID.ToString()
                                               }).ToList();
             ViewBag.listItemsBag = listItems;
             return View();
@@ -49,17 +49,17 @@ namespace Web_Homework.Controllers
         public IActionResult GetPerson(int id)
         {
             var item = personRepository.FindTable(id);
-            List<SelectListItem> listItems = (from item2 in context.Categories.ToList()
+            List<SelectListItem> listItems = (from item2 in context.PersonCategories.ToList()
                                               select new SelectListItem
                                               {
-                                                  Text = item2.CategoryName,
-                                                  Value = item2.CategoryID.ToString()
+                                                  Text = item2.PersonCategoryName,
+                                                  Value = item2.PersonCategoryID.ToString()
                                               }).ToList();
             ViewBag.listItemsBag = listItems;
             Person person = new Person()
             {
                 PersonID = item.PersonID,
-                CategoryID = item.CategoryID,
+                PersonCategoryID = item.PersonCategoryID,
                 PersonName = item.PersonName,
                 PersonSurname = item.PersonSurname,
                 PersonPhone = item.PersonPhone,
@@ -77,7 +77,7 @@ namespace Web_Homework.Controllers
             item.PersonPhone = person.PersonPhone;
             item.PersonEmail = person.PersonEmail;
             item.ImageUrl = person.ImageUrl;
-            item.CategoryID = person.CategoryID;
+            item.PersonCategoryID = person.PersonCategoryID;
             personRepository.UpdateTable(item);
             return RedirectToAction("Index");
         }

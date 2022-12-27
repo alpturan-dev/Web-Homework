@@ -2,15 +2,15 @@
 
 namespace Web_Homework.Models
 {
-    public class Category
+    public class PersonCategory
     {
-        public int CategoryID { get; set; }
+        public int PersonCategoryID { get; set; }
 
         [StringLength(30, ErrorMessage = "This field must have at least 5 characters.", MinimumLength = 5)]
         [Required(ErrorMessage = "This field cannot be empty!")]
-        public string CategoryName { get; set; }
+        public string PersonCategoryName { get; set; }
 
-        public string CategoryDescription { get; set; }
+        public string PersonCategoryDescription { get; set; }
 
         public List<Person> People { get; set; }
     }

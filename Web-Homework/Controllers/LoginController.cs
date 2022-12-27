@@ -37,7 +37,7 @@ namespace Web_Homework.Controllers
                 var userIdentity = new ClaimsIdentity(claims, "Login");
                 ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(userIdentity);
                 await HttpContext.SignInAsync(claimsPrincipal);
-                return RedirectToAction("Index", "Category");
+                return RedirectToAction("Index", "PersonCategory");
             }
             return View();
         }

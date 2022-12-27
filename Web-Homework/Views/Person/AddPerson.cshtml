@@ -37,8 +37,8 @@
         @Html.LabelFor(person => person.ImageUrl)
         @Html.TextBoxFor(person => person.ImageUrl, new { @class = "form-control" })
         <br />
-        @Html.LabelFor(person => person.Category)
-        @Html.DropDownListFor(person => person.CategoryID, (List<SelectListItem>)ViewBag.listItemsBag, new { @class = "form-control" })
+        @Html.LabelFor(person => person.PersonCategory)
+        @Html.DropDownListFor(person => person.PersonCategoryID, (List<SelectListItem>)ViewBag.listItemsBag, new { @class = "form-control" })
         <br />
         <button class="btn btn-success">Save</button>
     }
