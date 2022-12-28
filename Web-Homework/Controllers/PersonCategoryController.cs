@@ -34,5 +34,6 @@ namespace Web_Homework.Controllers
             personCategoryRepository.AddTable(personCategory);
             return RedirectToAction("Index");
         }
+
     }
 }

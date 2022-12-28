@@ -27,6 +27,7 @@ namespace Web_Homework.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(Admin parameter)
         {
+            ViewBag.email = parameter.Email;
             var userdata = context.Admins.FirstOrDefault(item => item.Email == parameter.Email && item.Password == parameter.Password);
             if (userdata != null)
             {
@@ -45,7 +46,7 @@ namespace Web_Homework.Controllers
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return RedirectToAction("Index", "Login");
+            return RedirectToAction("Index", "Home");
         }
     }
 }

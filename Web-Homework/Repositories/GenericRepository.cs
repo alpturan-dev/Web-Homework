@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
 using Web_Homework.Models;
 
@@ -36,6 +37,10 @@ namespace Web_Homework.Repositories
         public Table FindTable(int id)
         {
             return context.Set<Table>().Find(id);
+        }
+        public List<Table> FilteredTable(Expression<Func<Table, bool>> filtered)
+        {
+            return context.Set<Table>().Where(filtered).ToList();
         }
     }
 }

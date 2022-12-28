@@ -21,7 +21,7 @@ namespace Web_Homework.Controllers
         // GET: /<controller>/
         public IActionResult Index(int page = 1)
         {
-            return View(personRepository.TableList("PersonCategory").ToPagedList(page, 3));
+            return View(personRepository.TableList("PersonCategory").ToPagedList(page, 10));
         }
         [HttpGet]
         public IActionResult AddPerson()
@@ -80,6 +80,11 @@ namespace Web_Homework.Controllers
             item.PersonCategoryID = person.PersonCategoryID;
             personRepository.UpdateTable(item);
             return RedirectToAction("Index");
+        }
+        public IActionResult CategoryDetails(int id)
+        {
+            ViewBag.x = id;
+            return View();
         }
     }
 }

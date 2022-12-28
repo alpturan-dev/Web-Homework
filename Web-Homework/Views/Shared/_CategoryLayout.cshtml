@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Dormitory</title>
+    <title>@ViewData["Title"] - Person Category - Dormitory</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Web_Homework.styles.css" asp-append-version="true" />
@@ -34,21 +34,9 @@
                         }
                     </ul>
                     <ul class="navbar-nav text-right">
-                        @if (!User.Identity.IsAuthenticated)
-                        {
-                            <li class="nav-item ml-auto">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Index">Admin Panel Login</a>
-                            </li>
-
-                        }
-                        else
-                        {
-                            <li class="nav-item ml-auto">
-                                <a class="nav-link text-dark text-decoration-underline">Hello Admin</a>
-                            </li>
-                        }
-
-
+                        <li class="nav-item ml-auto">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Index">Admin Panel Login</a>
+                        </li>
                         @if (User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item ml-auto">
@@ -61,7 +49,11 @@
             </div>
         </nav>
     </header>
-    <div class="container">
+    <div class="container d-flex flex-row">
+
+        <ul class="nav nav-pills flex-column mb-auto border mt-5">
+            @await Component.InvokeAsync("Category")
+        </ul>
         <main role="main" class="pb-3">
             @RenderBody()
         </main>

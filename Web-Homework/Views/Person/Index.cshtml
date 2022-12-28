@@ -1,12 +1,11 @@
 @using X.PagedList;
 @using X.PagedList.Mvc.Core;
 @using X.PagedList.Web.Common;
-
 @model IPagedList<Web_Homework.Models.Person>
 
 @{
     ViewData["Title"] = "People Page";
-    Layout = "~/Views/Shared/_Layout.cshtml"; ;
+    Layout = "~/Views/Shared/_CategoryLayout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -25,6 +24,7 @@
     <table class="table table-bordered">
         <tr>
             <td>ID</td>
+            <td>Image</td>
             <td>Person Name</td>
             <td>Person Surname</td>
             <td>Person Phone</td>
@@ -37,6 +37,7 @@
         {
             <tr>
                 <td>@item.PersonID</td>
+                <td><img src="@item.ImageUrl" class="img-fluid p-1" style="width:100px; height:100px" /></td>
                 <td>@item.PersonName</td>
                 <td>@item.PersonSurname</td>
                 <td>@item.PersonPhone</td>
@@ -47,21 +48,6 @@
             </tr>
         }
     </table>
-    <div class="pull-right">
-        @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index",
-           new
-                {
-                    page
-
-         }),
-         new PagedListRenderOptionsBase
-         {
-             LiElementClasses = new string[] { "page-item" },
-             PageClasses = new string[] { "page-link" },
-             Display = PagedListDisplayMode.IfNeeded
-
-              })
-    </div>
     <a href="/Person/AddPerson" class="btn btn-primary">New Person</a>
 
 </body>
