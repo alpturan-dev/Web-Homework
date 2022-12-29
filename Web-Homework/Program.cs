@@ -1,6 +1,11 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.Globalization;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using Web_Homework;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +26,7 @@ builder.Services.AddMvc(config =>
 });
 
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
