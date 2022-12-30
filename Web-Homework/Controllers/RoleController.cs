@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Web_Homework.Models;
 using Web_Homework.Repositories;
@@ -10,28 +11,28 @@ using Web_Homework.Repositories;
 
 namespace Web_Homework.Controllers
 {
-    public class PersonCategoryController : Controller
+    public class RoleController : Controller
     {
-        PersonCategoryRepository personCategoryRepository = new PersonCategoryRepository();
+        RoleRepository roleRepository = new RoleRepository();
 
         public IActionResult Index()
         {
-            return View(personCategoryRepository.TableList());
+            return View(roleRepository.TableList());
         }
         [HttpGet]
-        public IActionResult AddPersonCategory()
+        public IActionResult AddRole()
         {
             return View();
         }
         [HttpPost]
-        public IActionResult AddPersonCategory(PersonCategory personCategory)
+        public IActionResult AddRole(Role role)
         {
             //Anlamadim burayi sonra bakariz.
             //if (!ModelState.IsValid)
             //{
             //    return View("AddCategory");
             //}
-            personCategoryRepository.AddTable(personCategory);
+            roleRepository.AddTable(role);
             return RedirectToAction("Index");
         }
 

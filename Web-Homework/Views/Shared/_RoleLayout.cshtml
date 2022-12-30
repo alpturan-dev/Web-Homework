@@ -39,18 +39,16 @@
 
         .link:hover {
             opacity: 0.8;
-            color: #DB0032;
         }
     </style>
 </head>
 <body class="p-0">
     <header>
-
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 p-0">
             <div class="container-fluid">
                 <img src="https://kygm.gsb.gov.tr/assets/img/kygmlogo-2019.svg" style="width:200px; height:100px" />
 
-                <img src="https://i.hizliresim.com/swd3eyd.png" style="width:200px; height:30px" />
+                <a asp-area="" asp-controller="Home" asp-action="Index" style="color: #2b2d42; margin-left:8px; text-decoration: none; font-size: 22px; font-family: 'Grandesign Neue Roman', sans-serif; "><img src="https://i.hizliresim.com/swd3eyd.png" style="width:200px; height:30px" /></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -59,10 +57,10 @@
                     <ul class="navbar-nav">
                         @if (!User.Identity.IsAuthenticated)
                         {
-                            <li class="nav-item" style="display:flex;align-items:center;">
-                                <span class="material-symbols-outlined" style="color: #DB0032">
-                                    login
-                                </span>
+                            <span class="material-symbols-outlined">
+                                login
+                            </span>
+                            <li class="nav-item">
                                 <a class="nav-link" asp-area="" asp-controller="Login" asp-action="Index">Login</a>
                             </li>
 
@@ -73,19 +71,19 @@
                                 <span class="material-symbols-outlined" style="color: #DB0032">
                                     arrow_right_alt
                                 </span>
-                                <a class="nav-link text-decoration-underline">Hello </a>
+                                <a class="nav-link text-decoration-underline">Hello Admin</a>
                             </li>
                         }
 
                         @if (User.Identity.IsAuthenticated)
                         {
+
                             <li class="nav-item mx-3">
                                 <a class="nav-link" asp-area="" asp-controller="Role" asp-action="Index">Role Panel</a>
                             </li>
                             <li class="nav-item mx-3">
                                 <a class="nav-link" asp-area="" asp-controller="Person" asp-action="Index">Person Panel</a>
                             </li>
-
                             <li class="nav-item" style="display:flex;align-items:center;">
                                 <a class="nav-link" asp-area="" asp-controller="Login" asp-action="Logout">Logout</a>
                                 <span class="material-symbols-outlined" style="color: #DB0032">
@@ -98,14 +96,12 @@
                 </div>
             </div>
         </nav>
-        <ul class="navbar-nav flex-grow-1 text-center" style="display: flex; flex-direction: row; justify-content: center; align-items: center; margin-bottom:20px; list-style:none;text-decoration:none;">
-            <li class="nav-item mx-3" style="">
+        <ul class="navbar-nav flex-grow-1 text-center" style="display: flex; flex-direction: row; justify-content: center; align-items: center; margin-bottom:20px;">
+            <li class="nav-item mx-3 " style="display:flex;align-items:center;">
                 <span class="material-symbols-outlined">
                     home
                 </span>
-                <a class="link" style="font-size: 20px; color: #2b2d42; " asp-area="" asp-controller="Home" asp-action="Index">
-                    Home
-                </a>
+                <a class="link" style="font-size: 20px; color: #2b2d42; text-decoration: underline; " asp-area="" asp-controller="Home" asp-action="Index">Home</a>
             </li>
             <li class="nav-item mx-3">
                 <a class="link" style="font-size: 20px; color: #2b2d42; " asp-area="" asp-controller="Home" asp-action="Index">Announcements</a>
@@ -121,24 +117,16 @@
             </li>
         </ul>
     </header>
-    <div class="container">
+    <div class="container d-flex flex-row">
+
+        <ul class="nav nav-pills flex-column mb-auto border mt-5">
+            @await Component.InvokeAsync("Role")
+        </ul>
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-    <footer class="footer" style="background-color: #ddd;width:auto; padding:10px;">
-        <div class="container d-flex" style="display:flex;flex-direction:row;justify-content:space-between; background-color :#ddd;">
-            <ul class="socials d-flex flex-col" style="list-style: none; background-color: #ddd;">
-                <li style="margin: 10px;"><a title="Facebook" class="facebook" href="https://www.facebook.com/gencliksporbak" target="_blank"><img style="width: 30px; height: 30px; background-color: #ddd;" src="https://cdn-icons-png.flaticon.com/512/59/59439.png" /></a></li>
-                <li style="margin: 10px;"><a title="Twitter" class="twitter" href="https://twitter.com/gencliksporbak/" target="_blank"><img style="width: 30px; height: 30px; background-color: #ddd;" src="https://cdn-icons-png.flaticon.com/512/3128/3128212.png" /></a></li>
-                <li style="margin: 10px;"><a title="Youtube" class="youtube" href="https://www.youtube.com/gencliksporbak" target="_blank"><img style="width: 30px; height: 30px; background-color: #ddd;" src="https://cdn-icons-png.flaticon.com/512/1384/1384028.png" /></a></li>
-                <li style="margin: 10px;"><a title="Instagram" class="instagram" href="https://www.instagram.com/gencliksporbak"><img style="width: 30px; height: 30px; background-color: #ddd;" src="https://cdn-icons-png.flaticon.com/512/1384/1384031.png" /></a></li>
-            </ul>
-            <ul style="list-style: none; background-color: #ddd;">
-                <li style="margin:10px; background-color: #ddd;color:white"><a href="https://www.gsb.gov.tr" alt="T.C. Gençlik ve Spor Bakanlığı Kurumsal Web Sitesi'ne Dön."><span class="ml-auto circle" style="background:#ddd">gsb.gov.tr</span></a></li>
-            </ul>
-        </div>
-    </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

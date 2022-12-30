@@ -38,10 +38,30 @@ namespace Web_Homework.Controllers
                 var userIdentity = new ClaimsIdentity(claims, "Login");
                 ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(userIdentity);
                 await HttpContext.SignInAsync(claimsPrincipal);
-                return RedirectToAction("Index", "PersonCategory");
+                return RedirectToAction("Index", "Role");
             }
             return View();
         }
+        //[AllowAnonymous]
+        //[HttpPost]
+        //public async Task<IActionResult> Index(Person parameter)
+        //{
+        //    ViewBag.email = parameter.PersonEmail;
+        //    var userdata = context.People.FirstOrDefault(item => item.PersonEmail == parameter.PersonEmail && item.PersonEmail == parameter.PersonEmail);
+        //    if (userdata != null)
+        //    {
+        //        var claims = new List<Claim>
+        //        {
+        //            new Claim(ClaimTypes.Email, parameter.PersonEmail)
+        //        };
+        //        var userIdentity = new ClaimsIdentity(claims, "Login");
+        //        ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(userIdentity);
+        //        await HttpContext.SignInAsync(claimsPrincipal);
+        //        return RedirectToAction("Index", "Role");
+        //    }
+        //    return View();
+        //    //person icin login isleminde kaldik
+        //}
         [HttpGet]
         public async Task<IActionResult> Logout()
         {

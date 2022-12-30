@@ -1,9 +1,0 @@
-﻿@model IEnumerable<Web_Homework.Models.PersonCategory>
-@foreach (var item in Model)
-{
-    <li class="nav-item">
-        <a href="/Person/CategoryDetails/@item.PersonCategoryID" class="nav-link">
-            @item.PersonCategoryName
-        </a>
-    </li>
-}

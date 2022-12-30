@@ -1,0 +1,33 @@
+﻿@model Web_Homework.Models.Role
+
+@{
+    ViewData["Title"] = "Role Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Role Index</title>
+</head>
+<body>
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+    <h2>Add Role Page</h2>
+    <br />
+    @using (Html.BeginForm("AddRole", "Role", FormMethod.Post))
+    {
+        @Html.LabelFor(role => role.RoleName)
+        @Html.TextBoxFor(role => role.RoleName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(role => role.RoleName, "", new { @style = "color:red" })
+        <br />
+        @Html.LabelFor(role => role.RoleDescription)
+        @Html.TextBoxFor(role => role.RoleDescription, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-info">Save</button>
+    }
+</body>
+</html>

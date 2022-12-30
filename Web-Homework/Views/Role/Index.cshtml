@@ -1,7 +1,7 @@
-﻿@model List<Web_Homework.Models.PersonCategory>
+﻿@model List<Web_Homework.Models.Role>
 
 @{
-    ViewData["Title"] = "Category Page";
+    ViewData["Title"] = "Role Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -10,32 +10,32 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Category Index</title>
+    <title>Role Index</title>
 </head>
 <body>
     @section Scripts {
         @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     }
-    <h2>Category List</h2>
+    <h2>Role List</h2>
     <br />
     <table class="table table-bordered">
         <tr>
             <td>ID</td>
-            <td>Category Name</td>
+            <td>Role Name</td>
             <td>Delete</td>
             <td>Update</td>
         </tr>
         @foreach (var item in Model)
         {
             <tr>
-                <td>@item.PersonCategoryID</td>
-                <td>@item.PersonCategoryName</td>
+                <td>@item.RoleID</td>
+                <td>@item.RoleName</td>
                 <td><a href="#" class="btn btn-danger">Delete</a></td>
                 <td><a href="#" class="btn btn-success">Update</a></td>
             </tr>
         }
     </table>
-    <a href="/PersonCategory/AddPersonCategory/" class="btn btn-primary">New Category</a>
+    <a href="/Role/AddRole/" class="btn btn-primary">New Role</a>
 
 </body>
 </html>

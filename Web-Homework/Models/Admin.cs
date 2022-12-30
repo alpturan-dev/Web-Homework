@@ -11,7 +11,7 @@ namespace Web_Homework.Models
 
         public string Password { get; set; }
 
-        public string Role { get; set; }
+        public Role Role { get; set; }
 
     }
 }

@@ -3,7 +3,7 @@ using Web_Homework.Models;
 
 namespace Web_Homework.Repositories
 {
-    public class PersonCategoryRepository : GenericRepository<PersonCategory>
+    public class RoleRepository : GenericRepository<Role>
     {
 
     }

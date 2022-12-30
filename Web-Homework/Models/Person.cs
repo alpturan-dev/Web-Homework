@@ -10,8 +10,8 @@ namespace Web_Homework.Models
         public string PersonPhone { get; set; }
         public string PersonEmail { get; set; }
         public string ImageUrl { get; set; }
-        public int PersonCategoryID { get; set; }
-        public virtual PersonCategory PersonCategory { get; set; }
+        public int RoleID { get; set; }
+        public virtual Role Role { get; set; }
 
     }
 }

@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Web_Homework.Models;
 using Web_Homework.Repositories;
 using X.PagedList;
+using Microsoft.AspNetCore.Authorization;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -21,16 +22,16 @@ namespace Web_Homework.Controllers
         // GET: /<controller>/
         public IActionResult Index(int page = 1)
         {
-            return View(personRepository.TableList("PersonCategory").ToPagedList(page, 10));
+            return View(personRepository.TableList("Role").ToPagedList(page, 10));
         }
         [HttpGet]
         public IActionResult AddPerson()
         {
-            List<SelectListItem> listItems = (from item in context.PersonCategories.ToList()
+            List<SelectListItem> listItems = (from item in context.Roles.ToList()
                                               select new SelectListItem
                                               {
-                                                  Text = item.PersonCategoryName,
-                                                  Value = item.PersonCategoryID.ToString()
+                                                  Text = item.RoleName,
+                                                  Value = item.RoleID.ToString()
                                               }).ToList();
             ViewBag.listItemsBag = listItems;
             return View();
@@ -49,17 +50,17 @@ namespace Web_Homework.Controllers
         public IActionResult GetPerson(int id)
         {
             var item = personRepository.FindTable(id);
-            List<SelectListItem> listItems = (from item2 in context.PersonCategories.ToList()
+            List<SelectListItem> listItems = (from item2 in context.Roles.ToList()
                                               select new SelectListItem
                                               {
-                                                  Text = item2.PersonCategoryName,
-                                                  Value = item2.PersonCategoryID.ToString()
+                                                  Text = item2.RoleName,
+                                                  Value = item2.RoleID.ToString()
                                               }).ToList();
             ViewBag.listItemsBag = listItems;
             Person person = new Person()
             {
                 PersonID = item.PersonID,
-                PersonCategoryID = item.PersonCategoryID,
+                RoleID = item.RoleID,
                 PersonName = item.PersonName,
                 PersonSurname = item.PersonSurname,
                 PersonPhone = item.PersonPhone,
@@ -77,11 +78,11 @@ namespace Web_Homework.Controllers
             item.PersonPhone = person.PersonPhone;
             item.PersonEmail = person.PersonEmail;
             item.ImageUrl = person.ImageUrl;
-            item.PersonCategoryID = person.PersonCategoryID;
+            item.RoleID = person.RoleID;
             personRepository.UpdateTable(item);
             return RedirectToAction("Index");
         }
-        public IActionResult CategoryDetails(int id)
+        public IActionResult RoleDetails(int id)
         {
             ViewBag.x = id;
             return View();

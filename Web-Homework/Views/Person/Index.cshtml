@@ -5,7 +5,7 @@
 
 @{
     ViewData["Title"] = "People Page";
-    Layout = "~/Views/Shared/_CategoryLayout.cshtml";
+    Layout = "~/Views/Shared/_RoleLayout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -29,7 +29,7 @@
             <td>Person Surname</td>
             <td>Person Phone</td>
             <td>Person E-mail</td>
-            <td>Category Name</td>
+            <td>Role Name</td>
             <td>Delete</td>
             <td>Update</td>
         </tr>
@@ -42,7 +42,7 @@
                 <td>@item.PersonSurname</td>
                 <td>@item.PersonPhone</td>
                 <td>@item.PersonEmail</td>
-                <td>@item.PersonCategory.PersonCategoryName</td>
+                <td>@item.Role.RoleName</td>
                 <td><a href="/Person/DeletePerson/@item.PersonID" class="btn btn-danger">Delete</a></td>
                 <td><a href="/Person/GetPerson/@item.PersonID" class="btn btn-success">Update</a></td>
             </tr>

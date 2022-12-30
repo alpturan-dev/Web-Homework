@@ -1,0 +1,9 @@
+﻿@model IEnumerable<Web_Homework.Models.Role>
+@foreach (var item in Model)
+{
+    <li class="nav-item">
+        <a href="/Person/RoleDetails/@item.RoleID" class="nav-link">
+            @item.RoleName
+        </a>
+    </li>
+}

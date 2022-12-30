@@ -35,7 +35,6 @@
     <None Remove="Views\Login\" />
     <None Remove="ViewComponents\" />
     <None Remove="Views\Person\Components\" />
-    <None Remove="Views\Person\Components\FilteredCategory\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Repositories\" />
@@ -43,7 +42,6 @@
     <Folder Include="Views\Login\" />
     <Folder Include="ViewComponents\" />
     <Folder Include="Views\Person\Components\" />
-    <Folder Include="Views\Person\Components\FilteredCategory\" />
   </ItemGroup>
   <ItemGroup>
     <Content Update="Views\Shared\_Layout.cshtml">
