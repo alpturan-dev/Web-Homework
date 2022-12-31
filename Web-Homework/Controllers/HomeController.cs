@@ -23,5 +23,9 @@ namespace Web_Homework.Controllers
         {
             return View();
         }
+        public IActionResult AdminPanel()
+        {
+            return View();
+        }
     }
 }

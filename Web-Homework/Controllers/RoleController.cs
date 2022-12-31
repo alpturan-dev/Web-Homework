@@ -35,6 +35,11 @@ namespace Web_Homework.Controllers
             roleRepository.AddTable(role);
             return RedirectToAction("Index");
         }
+        public IActionResult DeleteRole(int id)
+        {
+            roleRepository.DeleteTable((new Role { RoleID = id }));
+            return RedirectToAction("Index");
+        }
 
     }
 }

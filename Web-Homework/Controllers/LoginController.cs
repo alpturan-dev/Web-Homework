@@ -25,43 +25,32 @@ namespace Web_Homework.Controllers
         }
         [AllowAnonymous]
         [HttpPost]
-        public async Task<IActionResult> Index(Admin parameter)
+        public async Task<IActionResult> Index(Person person)
         {
-            ViewBag.email = parameter.Email;
-            var userdata = context.Admins.FirstOrDefault(item => item.Email == parameter.Email && item.Password == parameter.Password);
-            if (userdata != null)
+            var data = context.People.FirstOrDefault(item => item.PersonEmail == person.PersonEmail && item.Password == person.Password);
+            if (data != null)
             {
+
                 var claims = new List<Claim>
                 {
-                    new Claim(ClaimTypes.Email, parameter.Email)
+                    new Claim(ClaimTypes.Email, data.PersonEmail)
                 };
                 var userIdentity = new ClaimsIdentity(claims, "Login");
                 ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(userIdentity);
                 await HttpContext.SignInAsync(claimsPrincipal);
-                return RedirectToAction("Index", "Role");
+                if (data.RoleID == 2)
+                {
+                    return RedirectToAction("AdminPanel", "Home", data);
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Home", data);
+                }
+
             }
             return View();
         }
-        //[AllowAnonymous]
-        //[HttpPost]
-        //public async Task<IActionResult> Index(Person parameter)
-        //{
-        //    ViewBag.email = parameter.PersonEmail;
-        //    var userdata = context.People.FirstOrDefault(item => item.PersonEmail == parameter.PersonEmail && item.PersonEmail == parameter.PersonEmail);
-        //    if (userdata != null)
-        //    {
-        //        var claims = new List<Claim>
-        //        {
-        //            new Claim(ClaimTypes.Email, parameter.PersonEmail)
-        //        };
-        //        var userIdentity = new ClaimsIdentity(claims, "Login");
-        //        ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(userIdentity);
-        //        await HttpContext.SignInAsync(claimsPrincipal);
-        //        return RedirectToAction("Index", "Role");
-        //    }
-        //    return View();
-        //    //person icin login isleminde kaldik
-        //}
+
         [HttpGet]
         public async Task<IActionResult> Logout()
         {

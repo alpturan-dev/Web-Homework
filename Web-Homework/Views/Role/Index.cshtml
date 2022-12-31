@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Role Page";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_AdminPanelLayout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -30,7 +30,7 @@
             <tr>
                 <td>@item.RoleID</td>
                 <td>@item.RoleName</td>
-                <td><a href="#" class="btn btn-danger">Delete</a></td>
+                <td><a href="/Role/DeleteRole/@item.RoleID" class="btn btn-danger">Delete</a></td>
                 <td><a href="#" class="btn btn-success">Update</a></td>
             </tr>
         }

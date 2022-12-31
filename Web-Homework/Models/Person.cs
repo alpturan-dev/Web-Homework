@@ -10,6 +10,7 @@ namespace Web_Homework.Models
         public string PersonPhone { get; set; }
         public string PersonEmail { get; set; }
         public string ImageUrl { get; set; }
+        public string Password { get; set; }
         public int RoleID { get; set; }
         public virtual Role Role { get; set; }
 

@@ -57,22 +57,17 @@
                 </button>
                 <div class="navbar-collapse collapse" style="display:flex;flex-direction:row-reverse;margin-right:20px">
                     <ul class="navbar-nav">
-                        @if (!User.Identity.IsAuthenticated)
+
+                        @if (User.Identity.IsAuthenticated)
                         {
-                            <li class="nav-item" style="display:flex;align-items:center;">
-                                <span class="material-symbols-outlined" style="color: #DB0032">
-                                    login
-                                </span>
-                                <a class="nav-link" asp-area="" asp-controller="Login" asp-action="Index">Login</a>
+                            <li class="nav-item mx-3">
+                                Hello @ViewBag.PersonName
                             </li>
-                        }
-                        else
-                        {
-                            <li class="nav-item" style="display:flex;align-items:center;">
-                                <span class="material-symbols-outlined" style="color: #DB0032">
-                                    arrow_right_alt
-                                </span>
-                                <a class="nav-link text-decoration-underline">Hello</a>
+                            <li class="nav-item mx-3">
+                                <a class="nav-link" asp-area="" asp-controller="Role" asp-action="Index">Role Panel</a>
+                            </li>
+                            <li class="nav-item mx-3">
+                                <a class="nav-link" asp-area="" asp-controller="Person" asp-action="Index">Person Panel</a>
                             </li>
                             <li class="nav-item" style="display:flex;align-items:center;">
                                 <a class="nav-link" asp-area="" asp-controller="Login" asp-action="Logout">Logout</a>
@@ -81,45 +76,10 @@
                                 </span>
                             </li>
                         }
-
-                        @*@if (User.Identity.IsAuthenticated)
-                            {
-                                <li class="nav-item mx-3">
-                                    <a class="nav-link" asp-area="" asp-controller="Role" asp-action="Index">Role Panel</a>
-                                </li>
-                                <li class="nav-item mx-3">
-                                    <a class="nav-link" asp-area="" asp-controller="Person" asp-action="Index">Person Panel</a>
-                                </li>
-                            }*@
-
-
-
                     </ul>
                 </div>
             </div>
         </nav>
-        <ul class="navbar-nav flex-grow-1 text-center" style="display: flex; flex-direction: row; justify-content: center; align-items: center; margin-bottom:20px; list-style:none;text-decoration:none;">
-            <li class="nav-item mx-3" style="">
-                <span class="material-symbols-outlined">
-                    home
-                </span>
-                <a class="link" style="font-size: 20px; color: #2b2d42; " asp-area="" asp-controller="Home" asp-action="Index">
-                    Home
-                </a>
-            </li>
-            <li class="nav-item mx-3">
-                <a class="link" style="font-size: 20px; color: #2b2d42; " asp-area="" asp-controller="Home" asp-action="Index">Announcements</a>
-            </li>
-            <li class="nav-item mx-3">
-                <a class="link" style="font-size: 20px; color: #2b2d42; " asp-area="" asp-controller="Home" asp-action="Index">Gallery</a>
-            </li>
-            <li class="nav-item mx-3">
-                <a class="link" style="font-size: 20px; color: #2b2d42; " asp-area="" asp-controller="Home" asp-action="Index">Activities</a>
-            </li>
-            <li class="nav-item mx-3">
-                <a class="link" style="font-size: 20px; color: #2b2d42; " asp-area="" asp-controller="Home" asp-action="Index">About Us</a>
-            </li>
-        </ul>
     </header>
     <div class="container">
         <main role="main" class="pb-3">

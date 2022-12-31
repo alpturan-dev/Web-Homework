@@ -39,6 +39,7 @@ namespace Web_Homework.Controllers
         [HttpPost]
         public IActionResult AddPerson(Person person)
         {
+            person.Password = RandomPass();
             personRepository.AddTable(person);
             return RedirectToAction("Index");
         }
@@ -86,6 +87,18 @@ namespace Web_Homework.Controllers
         {
             ViewBag.x = id;
             return View();
+        }
+
+        public string RandomPass()
+        {
+            Random random = new Random();
+            int random1 = random.Next(0, 10);
+            int random2 = random.Next(0, 10);
+            int random3 = random.Next(0, 10);
+            int random4 = random.Next(0, 10);
+            int random5 = random.Next(0, 10);
+            string pass = random1.ToString() + random2.ToString() + random3.ToString() + random4.ToString() + random5.ToString();
+            return pass;
         }
     }
 }
