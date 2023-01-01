@@ -1,13 +1,13 @@
 ﻿@model List<Web_Homework.Models.Person>
 <tr>
     <td>ID</td>
-    <td>Image</td>
-    <td>Person Name</td>
-    <td>Person Surname</td>
-    <td>Person Phone</td>
-    <td>Person E-mail</td>
-    <td>Delete</td>
-    <td>Update</td>
+    <td key=20>Image</td>
+    <td key=21>Person Name</td>
+    <td key=22>Person Surname</td>
+    <td key=23>Person Phone</td>
+    <td key=24>Person E-mail</td>
+    <td key=13>Delete</td>
+    <td key=14>Update</td>
 </tr>
 @foreach (var item in Model)
 {
@@ -18,7 +18,7 @@
         <td>@item.PersonSurname</td>
         <td>@item.PersonPhone</td>
         <td>@item.PersonEmail</td>
-        <td><a href="/Person/DeletePerson/@item.PersonID" class="btn btn-danger">Delete</a></td>
-        <td><a href="/Person/GetPerson/@item.PersonID" class="btn btn-success">Update</a></td>
+        <td><a key=13 href="/Person/DeletePerson/@item.PersonID" class="btn btn-danger">Delete</a></td>
+        <td><a key=14 href="/Person/GetPerson/@item.PersonID" class="btn btn-success">Update</a></td>
     </tr>
 }

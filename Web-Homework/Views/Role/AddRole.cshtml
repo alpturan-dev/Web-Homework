@@ -16,18 +16,18 @@
     @section Scripts {
         @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     }
-    <h2>Add Role Page</h2>
+    <h2 key=16>Add Role Page</h2>
     <br />
     @using (Html.BeginForm("AddRole", "Role", FormMethod.Post))
     {
-        @Html.LabelFor(role => role.RoleName)
+        <label key=12>Role Name</label>
         @Html.TextBoxFor(role => role.RoleName, new { @class = "form-control" })
         @Html.ValidationMessageFor(role => role.RoleName, "", new { @style = "color:red" })
         <br />
-        @Html.LabelFor(role => role.RoleDescription)
+        <label key=17>Role Description</label>
         @Html.TextBoxFor(role => role.RoleDescription, new { @class = "form-control" })
         <br />
-        <button class="btn btn-info">Save</button>
+        <button key=18 class="btn btn-info">Save</button>
     }
 </body>
 </html>

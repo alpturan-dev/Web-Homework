@@ -23,11 +23,8 @@ namespace Web_Homework.Repositories
         }
         public void DeleteTable(Table parameter)
         {
-            //context.Entry<Table>(parameter).State = EntityState.Deleted;
             context.Set<Table>().Remove(parameter);
-            //context.Remove(parameter);
             context.SaveChanges();
-            //context.SaveChangesAsync();
         }
         public void UpdateTable(Table parameter)
         {

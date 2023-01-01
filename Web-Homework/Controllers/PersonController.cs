@@ -74,14 +74,19 @@ namespace Web_Homework.Controllers
         public IActionResult UpdatePerson(Person person)
         {
             var item = personRepository.FindTable(person.PersonID);
-            item.PersonName = person.PersonName;
-            item.PersonSurname = person.PersonSurname;
-            item.PersonPhone = person.PersonPhone;
-            item.PersonEmail = person.PersonEmail;
-            item.ImageUrl = person.ImageUrl;
-            item.RoleID = person.RoleID;
-            personRepository.UpdateTable(item);
+            if (item != null)
+            {
+                item.PersonName = person.PersonName;
+                item.PersonSurname = person.PersonSurname;
+                item.PersonPhone = person.PersonPhone;
+                item.PersonEmail = person.PersonEmail;
+                item.ImageUrl = person.ImageUrl;
+                item.RoleID = person.RoleID;
+                personRepository.UpdateTable(item);
+                return RedirectToAction("Index");
+            }
             return RedirectToAction("Index");
+
         }
         public IActionResult RoleDetails(int id)
         {
@@ -89,7 +94,7 @@ namespace Web_Homework.Controllers
             return View();
         }
 
-        public string RandomPass()
+        public static string RandomPass()
         {
             Random random = new Random();
             int random1 = random.Next(0, 10);

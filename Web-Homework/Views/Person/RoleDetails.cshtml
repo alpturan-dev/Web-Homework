@@ -1,6 +1,6 @@
 ﻿@{
     ViewData["Title"] = "People Page";
-    Layout = "~/Views/Shared/_RoleLayout.cshtml";
+    Layout = "~/Views/Shared/_AdminPanelLayout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -14,11 +14,13 @@
     @section Scripts {
         @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     }
-    <h2>People List</h2>
-    <br />
+    <h2 key=19>People List</h2>
+    <ul class="nav nav-pills mb-auto mt-2" style="display: flex; flex-direction: row; padding: 20px; align-items: center; justify-content: center;">
+        @await Component.InvokeAsync("Role")
+    </ul>
     <table class="table table-bordered">
         @await Component.InvokeAsync("FilteredRole", new { id = ViewBag.x })
     </table>
-    <a href="/Person/AddPerson" class="btn btn-primary">New Person</a>
+    <a key=25 href="/Person/AddPerson" class="btn btn-primary">Add New Person</a>
 </body>
 </html>

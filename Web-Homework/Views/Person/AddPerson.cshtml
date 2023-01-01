@@ -16,7 +16,7 @@
     @section Scripts {
         @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     }
-    <h2>Add Person Page</h2>
+    <h2 key=27>Add Person Page</h2>
     @using (Html.BeginForm("AddPerson", "Person", FormMethod.Post))
     {
         @Html.LabelFor(person => person.PersonName)
@@ -37,7 +37,7 @@
         @Html.LabelFor(person => person.Role)
         @Html.DropDownListFor(person => person.RoleID, (List<SelectListItem>)ViewBag.listItemsBag, new { @class = "form-control" })
         <br />
-        <button class="btn btn-success">Save</button>
+        <button key=18 class="btn btn-success">Save</button>
     }
 
 </body>

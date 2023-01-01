@@ -19,19 +19,21 @@
     @section Scripts {
         @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     }
-    <h2>People List</h2>
-    <br />
-    <table class="table table-bordered">
+    <h2 key=19>People List</h2>
+    <ul class="nav nav-pills mb-auto mt-2" style="display: flex; flex-direction: row; padding: 20px; align-items: center; justify-content: center;">
+        @await Component.InvokeAsync("Role")
+    </ul>
+    <table class="table table-bordered mb-3">
         <tr>
             <td>ID</td>
-            <td>Image</td>
-            <td>Person Name</td>
-            <td>Person Surname</td>
-            <td>Person Phone</td>
-            <td>Person E-mail</td>
-            <td>Role Name</td>
-            <td>Delete</td>
-            <td>Update</td>
+            <td key=20>Image</td>
+            <td key=21>Person Name</td>
+            <td key=22>Person Surname</td>
+            <td key=23>Person Phone</td>
+            <td key=24>Person E-mail</td>
+            <td key=12>Role Name</td>
+            <td key=13>Delete</td>
+            <td key=14>Update</td>
         </tr>
         @foreach (var item in Model)
         {
@@ -43,12 +45,11 @@
                 <td>@item.PersonPhone</td>
                 <td>@item.PersonEmail</td>
                 <td>@item.Role.RoleName</td>
-                <td><a href="/Person/DeletePerson/@item.PersonID" class="btn btn-danger">Delete</a></td>
-                <td><a href="/Person/GetPerson/@item.PersonID" class="btn btn-success">Update</a></td>
+                <td><a key=13 href="/Person/DeletePerson/@item.PersonID" class="btn btn-danger">Delete</a></td>
+                <td><a key=14 href="/Person/GetPerson/@item.PersonID" class="btn btn-success">Update</a></td>
             </tr>
         }
     </table>
-    <a href="/Person/AddPerson" class="btn btn-primary">New Person</a>
-
+    <a key=25 href="/Person/AddPerson" class="btn btn-primary" style="margin-bottom:200px">Add New Person</a>
 </body>
 </html>

@@ -16,26 +16,26 @@
     @section Scripts {
         @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     }
-    <h2>Role List</h2>
+    <h2 key=11>Role List</h2>
     <br />
     <table class="table table-bordered">
         <tr>
             <td>ID</td>
-            <td>Role Name</td>
-            <td>Delete</td>
-            <td>Update</td>
+            <td key=12>Role Name</td>
+            <td key=13>Delete</td>
+            <td key=14>Update</td>
         </tr>
         @foreach (var item in Model)
         {
             <tr>
                 <td>@item.RoleID</td>
                 <td>@item.RoleName</td>
-                <td><a href="/Role/DeleteRole/@item.RoleID" class="btn btn-danger">Delete</a></td>
-                <td><a href="#" class="btn btn-success">Update</a></td>
+                <td><a key=13 href="/Role/DeleteRole/@item.RoleID" class="btn btn-danger">Delete</a></td>
+                <td><a key=14 href="#" class="btn btn-success">Update</a></td>
             </tr>
         }
     </table>
-    <a href="/Role/AddRole/" class="btn btn-primary">New Role</a>
-
+    <a key=15 href="/Role/AddRole/" class="btn btn-primary">Add New Role</a>
+    <script src="~/js/site.js" asp-append-version="true"></script>
 </body>
 </html>

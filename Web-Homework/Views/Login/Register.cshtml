@@ -1,0 +1,86 @@
+﻿@model Web_Homework.Models.Person
+
+@{
+    ViewData["Title"] = "Register Page";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+          rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+          rel="stylesheet" />
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.1/mdb.min.css"
+          rel="stylesheet" />
+    <title>Dormitory Register</title>
+</head>
+<body>
+    <section class="vh-100 d-flex justify-content-center align-items-center h-100">
+        <div class="container-fluid h-custom">
+            <div class="d-flex flex-column justify-content-center align-items-center h-100">
+                <div class="col-md-8 col-lg-6 col-xl-4">
+                    <form class="border p-4" method="post" action="~/Login/Register/">
+                        <div class="d-flex p-3">
+                            <img src="https://cengage.force.com/resource/1607465003000/loginIcon"
+                                 class="img-fluid w-50 m-auto" alt="Sample image">
+                        </div>
+                        <h2>Dormitory Register Panel</h2>
+                        <div class="mb-4">
+                            <label class="form-label" for="form3Example3">Person Name</label>
+                            @Html.TextBoxFor(person => person.PersonName, new { @class = "form-control" })
+                            @*<input name="PersonEmail" type="email" id="form3Example3" class="form-control form-control-lg"
+                                placeholder="Enter a valid email address" />*@
+                        </div>
+                        <div class=" mb-4">
+                            <label class="form-label" for="form3Example3">Person Surname</label>
+                            @Html.TextBoxFor(person => person.PersonSurname, new { @class = "form-control" })
+                            @*<input name="PersonEmail" type="email" id="form3Example3" class="form-control form-control-lg"
+                                placeholder="Enter a valid email address" />*@
+                        </div>
+                        <div class=" mb-4">
+                            <label class="form-label" for="form3Example3">Person Phone</label>
+                            @Html.TextBoxFor(person => person.PersonPhone, new { @class = "form-control" })
+                            @*<input name="PersonEmail" type="email" id="form3Example3" class="form-control form-control-lg"
+                                placeholder="Enter a valid email address" />*@
+                        </div>
+                        <div class=" mb-4">
+                            <label class="form-label" for="form3Example3">Email Address</label>
+                            @Html.TextBoxFor(person => person.PersonEmail, new { @class = "form-control" })
+                            @*<input name="PersonEmail" type="email" id="form3Example3" class="form-control form-control-lg"
+                                placeholder="Enter a valid email address" />*@
+                        </div>
+                        <div class=" mb-4">
+                            <label class="form-label" for="form3Example3">Image Url</label>
+                            @Html.TextBoxFor(person => person.ImageUrl, new { @class = "form-control" })
+                            @*<input name="PersonEmail" type="email" id="form3Example3" class="form-control form-control-lg"
+                                placeholder="Enter a valid email address" />*@
+                        </div>
+                        <div class=" mb-4">
+                            <label class="form-label" for="form3Example3">Role</label>
+
+                            @Html.DropDownListFor(person => person.RoleID, (List<SelectListItem>)ViewBag.listItemsBag, new { @class = "form-control" })
+                            @*<input name="PersonEmail" type="email" id="form3Example3" class="form-control form-control-lg"
+                                placeholder="Enter a valid email address" />*@
+                        </div>
+                        <div class=" mb-3">
+                            <label class="form-label" for="form3Example4">Password</label>
+
+                            @Html.TextBoxFor(person => person.Password, new { @class = "form-control" })
+                        </div>
+                        <button class="btn btn-danger">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+</body>
+</html>
