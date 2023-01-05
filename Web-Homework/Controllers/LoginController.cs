@@ -17,7 +17,11 @@ namespace Web_Homework.Controllers
 {
     public class LoginController : Controller
     {
-        Context context = new Context();
+        private readonly Context context;
+        public LoginController(Context _context)
+        {
+            context = _context;
+        }
         PersonRepository personRepository = new PersonRepository();
         // GET: /<controller>/
         [AllowAnonymous]

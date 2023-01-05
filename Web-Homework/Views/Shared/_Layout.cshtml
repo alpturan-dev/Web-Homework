@@ -72,6 +72,7 @@
 
                         @if (!User.Identity.IsAuthenticated)
                         {
+
                             <li class="nav-item" style="display: flex; align-items: center; background: #DB0032; color: white;border-radius:5px; padding:10px 3px">
                                 <a class="nav-link" style="display: flex; align-items: center; padding: 0 10px; background: #DB0032; color: white;" asp-area="" asp-controller="Login" asp-action="Logout">
                                     <span class="material-symbols-outlined" style="margin:0 4px;background-color: #DB0032;color:white">
@@ -128,10 +129,7 @@
                 <a key=4 class="link" style="font-size: 24px; color: #2b2d42; " asp-area="" asp-controller="Home" asp-action="Duyurular">Announcements</a>
             </li>
             <li class="nav-item mx-3">
-                <a key=5 class="link" style="font-size: 24px; color: #2b2d42; " asp-area="" asp-controller="Home" asp-action="Index">Gallery</a>
-            </li>
-            <li class="nav-item mx-3">
-                <a key=6 class="link" style="font-size: 24px; color: #2b2d42; " asp-area="" asp-controller="Home" asp-action="Index">Activities</a>
+                <a key=6 class="link" style="font-size: 24px; color: #2b2d42; " asp-area="" asp-controller="Home" asp-action="Etkinlikler">Activities</a>
             </li>
             <li class="nav-item mx-3">
                 <a key=7 class="link" style="font-size: 24px; color: #2b2d42; " asp-area="" asp-controller="Home" asp-action="Iletisim">Contact</a>
@@ -143,7 +141,7 @@
             @RenderBody()
         </main>
     </div>
-    <footer class="footer" style=" position: fixed; bottom: 0; width: 100%; background-color: #ddd; padding: 10px;">
+    <footer class="footer" style=" position: fixed; bottom: 0; width: 100%; background-color: #ddd; padding: 5px;">
         <div class="container d-flex" style="display:flex;flex-direction:row;justify-content:space-between; background-color :#ddd;">
             <ul class="socials d-flex flex-col" style="list-style: none; background-color: #ddd; margin-bottom:0;">
                 <li style="margin: 10px;"><a title="Facebook" class="facebook " href="https://www.facebook.com/gencliksporbak" target="_blank"><img style="width: 30px; height: 30px; background-color: #ddd;" src="https://cdn-icons-png.flaticon.com/512/59/59439.png" /></a></li>

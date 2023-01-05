@@ -16,12 +16,18 @@ namespace Web_Homework.Controllers
 {
     public class PersonController : Controller
     {
-        Context context = new Context();
+        private readonly Context context;
+        public PersonController(Context _context)
+        {
+            context = _context;
+        }
+
         PersonRepository personRepository = new PersonRepository();
 
         // GET: /<controller>/
-        public IActionResult Index(int page = 1)
+        public IActionResult Index(Person person, int page = 1)
         {
+            ViewBag.personID = person.PersonID;
             return View(personRepository.TableList("Role").ToPagedList(page, 10));
         }
         [HttpGet]

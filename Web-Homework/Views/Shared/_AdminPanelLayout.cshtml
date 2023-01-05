@@ -89,7 +89,6 @@
 
                         @if (User.Identity.IsAuthenticated)
                         {
-
                             <li class="nav-item mx-3">
                                 <a key=9 class="nav-link" asp-area="" asp-controller="Role" asp-action="Index">Role Panel</a>
                             </li>
@@ -110,12 +109,12 @@
             </div>
         </nav>
     </header>
-    <div class="container">
+    t    <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-    <footer class="footer" style=" position: fixed; bottom: 0; width: 100%; background-color: #ddd; padding: 10px;">
+    <footer class="footer" style=" position: fixed; bottom: 0; width: 100%; background-color: #ddd; padding: 5px;">
         <div class="container d-flex" style="display:flex;flex-direction:row;justify-content:space-between; background-color :#ddd;">
             <ul class="socials d-flex flex-col" style="list-style: none; background-color: #ddd; margin-bottom:0;">
                 <li style="margin: 10px;"><a title="Facebook" class="facebook " href="https://www.facebook.com/gencliksporbak" target="_blank"><img style="width: 30px; height: 30px; background-color: #ddd;" src="https://cdn-icons-png.flaticon.com/512/59/59439.png" /></a></li>

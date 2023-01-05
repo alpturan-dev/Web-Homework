@@ -6,6 +6,10 @@ namespace Web_Homework.Repositories
     public class RoleRepository : GenericRepository<Role>
     {
 
+        public RoleRepository()
+        {
+
+        }
     }
 }
 

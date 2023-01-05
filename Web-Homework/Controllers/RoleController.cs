@@ -15,7 +15,11 @@ namespace Web_Homework.Controllers
 {
     public class RoleController : Controller
     {
-        Context context = new Context();
+        private readonly Context context;
+        public RoleController(Context _context)
+        {
+            context = _context;
+        }
 
         RoleRepository roleRepository = new RoleRepository();
 
@@ -70,6 +74,5 @@ namespace Web_Homework.Controllers
         //    roleRepository.UpdateTable(item);
         //    return RedirectToAction("Index");
         //}
-
     }
 }
